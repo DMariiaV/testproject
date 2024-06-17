@@ -22,9 +22,6 @@ class CartPage extends Page {
     get checkout() {
         return $('button#checkout')
     }
-
-    
-
 }
 
 export default new CartPage();

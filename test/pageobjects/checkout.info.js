@@ -4,13 +4,10 @@ import Page from './page.js';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class CartPage extends CheckoutInfoPage {
+class CheckoutPage extends Page {
     /**
      * define selectors using getter methods
      */
-    get checkoutInfo() {
-        return $('');
-    }
 
     get firstName() {
         return $('input#first-name')
@@ -29,4 +26,4 @@ class CartPage extends CheckoutInfoPage {
 
 
 }
-export default new CheckoutInfoPage();
+export default new CheckoutPage();

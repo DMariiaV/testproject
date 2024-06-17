@@ -13,11 +13,23 @@ class InventoryPage extends Page {
     }
 
     addProductToCartByName(name){
-        return $(`//*[text()='${name}']/ancestor::div[@class='inventory_item_label']/following-sibling::div[@class='pricebar']//button[text()='Add to cart']`).click()
+        return this.getProductCardByName(name).$(`./following-sibling::div[@class='pricebar']//button[text()='Add to cart']`).click()
+    }
+
+    getProductPriceByName(name){
+        return this.getProductCardByName(name).$(`./following-sibling::div[@class='pricebar']/div[@class='inventory_item_price']`).getText()
+    }
+
+    getProductCardByName(name){
+        return $(`//*[text()='${name}']/ancestor::div[@class='inventory_item_label']`)
     }
 
     getShoppingCartItemsCount(){
-        return this.shopingCard.$(`.shopping_cart_badge`).getText()
+        return this.shoppingCartCounter.getText()
+    }
+
+    get shoppingCartCounter(){
+        return this.shopingCard.$(`.shopping_cart_badge`)
     }
 
     get shopingCard(){

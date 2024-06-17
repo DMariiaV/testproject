@@ -4,7 +4,7 @@ import Page from './page.js';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class CheckoutOverview extends Page {
+class CheckoutComplete extends Page {
     /**
      * define selectors using getter methods
      */
@@ -17,13 +17,17 @@ getProductByName(name){
     return $(`//*[text()='${name}']/ancestor::div[@class='cart_item_label']`)
 }
 
-get summarySubTotal(){
-    return $('.summary_subtotal_label')
+get completeNotification(){
+    return $('.complete-header')
+}
+
+get backHomeBtn(){
+    return $('#back-to-products')
 }
 
 getPagePath(){
-    return `/checkout-step-two.html`}
+    return `/checkout-complete.html`}
 
 }
 
-export default new CheckoutOverview();
+export default new CheckoutComplete();
